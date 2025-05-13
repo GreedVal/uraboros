@@ -26,9 +26,8 @@ class MadelineProtoServiceProvider extends ServiceProvider
                 throw new \RuntimeException('TELEGRAM_API_HASH is not set in .env');
             }
 
-            $name = 'session';
             $sessionPath = Config::get('madelineproto.session_path', 'app/madelineproto/');
-            $sessionPath = storage_path("{$sessionPath}{$name}.madeline");
+            $sessionPath = storage_path("{$sessionPath}session.madeline");
 
             $settings = (new AppInfo)
                 ->setApiId($apiId)

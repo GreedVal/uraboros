@@ -10,7 +10,8 @@
         "danog/madelineproto": "^8.4",
         "laravel/framework": "^12.0",
         "laravel/tinker": "^2.10.1",
-        "moonshine/moonshine": "^3.11"
+        "moonshine/moonshine": "^3.11",
+        "phpoffice/phpspreadsheet": "*"
     },
     "require-dev": {
         "fakerphp/faker": "^1.23",
