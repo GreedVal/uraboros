@@ -17,3 +17,8 @@ $result = app(\App\Telegram\Services\TelegramService::class)
 
 print_r($result);
 });
+
+
+Route::get('/', function () {
+    return view('home');
+});
