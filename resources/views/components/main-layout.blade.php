@@ -8,22 +8,13 @@
 </head>
 <body class="flex flex-col min-h-screen bg-gray-100 text-gray-800">
 
-    <header class="bg-white shadow p-4">
-        <nav class="container mx-auto flex justify-between">
-            <div class="text-xl font-bold">Логотип</div>
-            <ul class="flex space-x-4">
-                <li><a href="/" class="hover:underline">Главная</a></li>
-            </ul>
-        </nav>
-    </header>
+    @include('components.header')
 
     <main class="flex-grow container mx-auto py-8">
         {{ $slot }}
     </main>
 
-    <footer class="bg-gray-200 text-center p-4">
-        &copy; {{ date('Y') }} Мой сайт. Все права защищены.
-    </footer>
+    @include('components.footer')
 
 </body>
 </html>
