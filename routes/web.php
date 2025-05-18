@@ -1,24 +1,14 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Telegram\DTO\Search\SearchMessagesDTO;
-
-
-
-Route::get('/', function () {
-$dto = new SearchMessagesDTO(
-    chatUsername: 'krim_chat',
-    fromId: 'Luckyluckianno',
-    limit: 2
-);
-
-$result = app(\App\Telegram\Services\TelegramService::class)
-    ->getMessagesByUser($dto);
-
-print_r($result);
-});
-
+use App\Http\Controllers\Telegram\SearchWordInGroupController;
 
 Route::get('/', function () {
     return view('home');
+});
+
+Route::prefix('telegram')->name('telegram.')->group(function () {
+
+    Route::get('/search-word-group', [SearchWordInGroupController::class, 'index'])->name('search-word-group');
+
 });
