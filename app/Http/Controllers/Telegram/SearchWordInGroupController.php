@@ -14,5 +14,9 @@ class SearchWordInGroupController extends Controller
 
     }
 
+    public function search(Request $request) {
 
+        return view('telegram.search-word-group');
+
+    }
 }

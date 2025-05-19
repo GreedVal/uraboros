@@ -4,7 +4,7 @@
 
         <div class="space-y-6">
             <div class="bg-gray-700 p-4 rounded-lg">
-                <form action="#" method="GET" class="space-y-4">
+                <form action="{{ route('telegram.search-word-group.result') }}" method="GET" class="space-y-4">
                     <div>
                         <label for="chatUsername" class="block text-sm font-medium text-gray-300 mb-1">Чат/Канал</label>
                         <input type="text" id="chatUsername" name="chatUsername" required

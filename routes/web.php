@@ -10,5 +10,5 @@ Route::get('/', function () {
 Route::prefix('telegram')->name('telegram.')->group(function () {
 
     Route::get('/search-word-group', [SearchWordInGroupController::class, 'index'])->name('search-word-group');
-
+    Route::get('/search-word-group/result', [SearchWordInGroupController::class, 'search'])->name('search-word-group.result');
 });
