@@ -13,6 +13,5 @@ class MessageDTO
         public string $text,
         public bool $isOutgoing,
         public ?UserDTO $user = null,
-        public ?ChatDTO $chat = null
     ) {}
 }

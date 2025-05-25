@@ -5,6 +5,7 @@ namespace App\Telegram\Actions\Search;
 use Illuminate\Support\Facades\Log;
 use App\Telegram\DTO\Search\SearchMessagesDTO;
 use App\Telegram\Actions\AbstractTelegramAction;
+use App\Telegram\Factories\ChatDTOFactory;
 use App\Telegram\Factories\MessageDTOFactory;
 
 class SearchMessagesByWordAction extends AbstractTelegramAction
@@ -16,6 +17,7 @@ class SearchMessagesByWordAction extends AbstractTelegramAction
                 'peer' => $dto->chatUsername,
                 'q' => $dto->query,
                 'limit' => $dto->limit,
+                'add_offset' => $dto->addOffset,
                 'offset_id' => $dto->offsetId,
             ]);
 
@@ -36,21 +38,18 @@ class SearchMessagesByWordAction extends AbstractTelegramAction
             $usersMap[$user['id']] = $user;
         }
 
-        $chatsMap = [];
+        $messages['count'] = $response['count'];
 
         foreach ($response['chats'] ?? [] as $chat) {
-            $chatsMap[$chat['id']] = $chat;
+            $messages['chat'][] = ChatDTOFactory::createFromArray($chat);
         }
-
-
-        $messages['count'] = $response['count'];
 
         foreach ($response['messages'] ?? [] as $messageData) {
             if ($messageData['_'] !== 'message') {
                 continue;
             }
 
-            $messages['messages'][] = MessageDTOFactory::createFromArray($messageData, $usersMap, $chatsMap);
+            $messages['messages'][] = MessageDTOFactory::createFromArray($messageData, $usersMap);
         }
 
         return $messages;
