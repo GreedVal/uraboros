@@ -24,8 +24,8 @@ class SearchMessagesByWordAction extends AbstractTelegramAction
             return $this->processResponse($response);
 
         } catch (\Exception $e) {
-            Log::error("Error in SearchMessagesAction: " . $e->getMessage());
-            return [];
+            //Log::error("Error in SearchMessagesAction: " . $e->getMessage());
+            return ['error' => $e->getMessage()];
         }
     }
 

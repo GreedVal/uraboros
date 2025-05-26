@@ -103,7 +103,7 @@
                 @endforeach
             </div>
 
-            @if ($count > 30)
+            @if ($count > 20)
                 <div class="mt-8 flex items-center justify-between">
                     {{-- Кнопка "Назад" --}}
                     @if ($currentPage > 1)

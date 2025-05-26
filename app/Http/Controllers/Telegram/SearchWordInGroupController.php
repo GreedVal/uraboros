@@ -33,6 +33,10 @@ class SearchWordInGroupController extends Controller
 
         $result = $this->telegramService->getMessagesByWord($dto);
 
+        if (is_array($result) && array_key_exists('error', $result)) {
+            return redirect()->back()->with('status', $result['error']);
+        }
+
         $lastMessageId = 0;
         if (!empty($result['messages'])) {
             $lastMessage = end($result['messages']);

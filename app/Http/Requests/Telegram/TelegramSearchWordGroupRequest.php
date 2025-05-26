@@ -26,22 +26,11 @@ class TelegramSearchWordGroupRequest extends FormRequest
                 'required',
                 'string',
                 'max:255',
-                'regex:/^(@[a-zA-Z0-9_]{5,32}|t\.me\/[a-zA-Z0-9_]{5,32})$/'
             ],
             'query' => [
                 'nullable',
                 'string',
                 'max:512',
-            ],
-            'minDate' => [
-                'nullable',
-                'date',
-                'before_or_equal:maxDate',
-            ],
-            'maxDate' => [
-                'nullable',
-                'date',
-                'after_or_equal:minDate',
             ],
         ];
     }
@@ -55,12 +44,7 @@ class TelegramSearchWordGroupRequest extends FormRequest
     {
         return [
             'chatUsername.required' => 'Поле чат/канал обязательно для заполнения.',
-            'chatUsername.regex' => 'Некорректный формат username. Используйте @username или t.me/username.',
             'query.max' => 'Поисковый запрос не должен превышать 512 символов.',
-            'minDate.date' => 'Некорректный формат даты.',
-            'minDate.before_or_equal' => 'Дата "от" должна быть раньше или равна дате "до".',
-            'maxDate.date' => 'Некорректный формат даты.',
-            'maxDate.after_or_equal' => 'Дата "до" должна быть позже или равна дате "от".',
         ];
     }
 
