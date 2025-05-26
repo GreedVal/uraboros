@@ -12,7 +12,7 @@ class SearchMessagesDTO
         public int $maxDate = 0,
         public int $offsetId = 0,
         public int $addOffset = 0,
-        public int $limit = 30,
+        public int $limit = 20,
         public int $maxId = 0,
         public int $minId = 0,
         public array $hash = [],

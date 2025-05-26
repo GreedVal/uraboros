@@ -14,7 +14,7 @@ class MessageDTOFactory
             $userData = $users[$data['from_id']];
             $user = new UserDTO(
                 $userData['id'],
-                $userData['first_name'],
+                $userData['first_name'] ?? null,
                 $userData['last_name'] ?? null,
                 $userData['username'] ?? null
             );

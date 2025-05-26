@@ -17,8 +17,8 @@ class SearchMessagesByWordAction extends AbstractTelegramAction
                 'peer' => $dto->chatUsername,
                 'q' => $dto->query,
                 'limit' => $dto->limit,
-                'add_offset' => $dto->addOffset,
                 'offset_id' => $dto->offsetId,
+                'add_offset' => $dto->addOffset,
             ]);
 
             return $this->processResponse($response);
