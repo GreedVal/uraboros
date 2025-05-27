@@ -21,7 +21,7 @@
                         <li><a href="{{ route('telegram.search-word-group') }}"
                                 class="block px-4 py-2 hover:bg-gray-700 hover:text-indigo-300 transition-colors">Поиск
                                 по слову</a></li>
-                        <li><a href="#"
+                        <li><a href="{{ route('telegram.search-user-group') }}"
                                 class="block px-4 py-2 hover:bg-gray-700 hover:text-indigo-300 transition-colors">Поиск
                                 по участнику</a></li>
                         <li><a href="#"

@@ -51,11 +51,11 @@ class SearchWordInGroupController extends Controller
 
         return view('telegram.search-word-group-result', [
             'count' => $result['count'],
-            'chat' => $result['chat'],
-            'messages' => $result['messages'],
-            'currentPage' => $page,
-            'totalPages' => ceil($result['count'] / 20),
-            'queryParams' => $queryParams
+            'chat' => $result['chat'] ?? null,
+            'messages' => $result['messages'] ?? null,
+            'currentPage' => $page ?? null,
+            'totalPages' => ceil($result['count'] / 20) ?? null,
+            'queryParams' => $queryParams ?? null
         ]);
     }
 }

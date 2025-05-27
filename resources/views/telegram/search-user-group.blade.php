@@ -1,3 +1,3 @@
 <x-main-layout title="URABOROS">
-    <x-forms.word-group />
+    <x-forms.user-group />
 </x-main-layout>
