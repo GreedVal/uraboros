@@ -8,7 +8,7 @@ use App\Telegram\Actions\AbstractTelegramAction;
 use App\Telegram\Factories\ChatDTOFactory;
 use App\Telegram\Factories\MessageDTOFactory;
 
-class SearchMessagesByWordAction extends AbstractTelegramAction
+class SearchMessagesAction extends AbstractTelegramAction
 {
     public function execute(SearchMessagesDTO $dto): array
     {
@@ -16,9 +16,16 @@ class SearchMessagesByWordAction extends AbstractTelegramAction
             $response = $this->madeline()->messages->search([
                 'peer' => $dto->chatUsername,
                 'q' => $dto->query,
-                'limit' => $dto->limit,
+                'from_id' => $dto->fromId,
+                'filter' => $dto->filter,
+                'min_date' => $dto->minDate,
+                'max_date' => $dto->maxDate,
                 'offset_id' => $dto->offsetId,
                 'add_offset' => $dto->addOffset,
+                'limit' => $dto->limit,
+                'max_id' => $dto->maxId,
+                'min_id' => $dto->minId,
+                'hash' => $dto->hash,
             ]);
 
             return $this->processResponse($response);

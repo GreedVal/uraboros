@@ -24,7 +24,7 @@
                         <li><a href="{{ route('telegram.search-user-group') }}"
                                 class="block px-4 py-2 hover:bg-gray-700 hover:text-indigo-300 transition-colors">Поиск
                                 по участнику</a></li>
-                        <li><a href="#"
+                        <li><a href="{{ route('telegram.get-user-group') }}"
                                 class="block px-4 py-2 hover:bg-gray-700 hover:text-indigo-300 transition-colors">Получить
                                 участников</a></li>
                     </ul>
