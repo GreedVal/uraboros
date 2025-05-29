@@ -11,12 +11,7 @@ class GetGroupParticipantsAction extends AbstractTelegramAction
     public function execute(ParticipantsRequestDTO $dto): ?array
     {
         try {
-            return $this->madeline()->messages->search([
-                'channel' => $dto->chatUsername,
-                'filter' => ['_' => 'channelParticipantsRecent'],
-                'offset' => $dto->offset,
-                'limit' => $dto->limit,
-            ]);
+            return $this->madeline()->channels->getParticipants($dto->toArray());
 
         } catch (\Exception $e) {
             Log::error("Error in GetGroupParticipantsAction: " . $e->getMessage());
