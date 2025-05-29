@@ -18,6 +18,16 @@
                         placeholder="username">
                 </div>
 
+                <div>
+                    <label for="filter" class="block text-sm font-medium text-gray-300 mb-1">Тип участников</label>
+                    <select id="filter" name="filter"
+                        class="w-full px-4 py-2 bg-gray-800 border border-gray-600 rounded-md focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 text-white">
+                        @foreach (App\Telegram\Enum\ChannelParticipantsFilter::cases() as $filter)
+                            <option value="{{ $filter->value }}">{{ $filter->name }}</option>
+                        @endforeach
+                    </select>
+                </div>
+
                 <div class="pt-2">
                     <button type="submit"
                         class="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-3 px-4 rounded-md transition duration-200 flex items-center justify-center space-x-2">

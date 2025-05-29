@@ -5,7 +5,6 @@ namespace App\Http\Controllers\Telegram;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Telegram\Services\TelegramService;
-use App\Telegram\Enum\ChannelParticipantsFilter;
 use App\Telegram\DTO\Request\ParticipantsRequestDTO;
 
 class GetUserInGroupController extends Controller
@@ -24,7 +23,7 @@ class GetUserInGroupController extends Controller
 
         $dto = new ParticipantsRequestDTO(
             chatUsername: 'DimBandera',
-            filter: ChannelParticipantsFilter::ADMINS,
+            filter: $request->filter,
             limit: 10,
             offset: 0
         );
