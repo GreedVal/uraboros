@@ -2,9 +2,10 @@
 
 namespace App\Telegram\Services;
 
-use App\Telegram\DTO\Search\SearchMessagesDTO;
+
+use App\Telegram\DTO\Request\SearchMessagesDTO;
 use App\Telegram\DTO\Request\ParticipantsRequestDTO;
-use App\Telegram\Actions\Search\SearchMessagesAction;
+use App\Telegram\Actions\Request\SearchMessagesAction;
 use App\Telegram\Actions\Request\GetGroupParticipantsAction;
 
 

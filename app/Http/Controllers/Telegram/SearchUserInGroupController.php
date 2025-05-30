@@ -5,7 +5,8 @@ namespace App\Http\Controllers\Telegram;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Telegram\Services\TelegramService;
-use App\Telegram\DTO\Search\SearchMessagesDTO;
+use App\Telegram\DTO\Request\SearchMessagesDTO;
+
 
 class SearchUserInGroupController extends Controller
 {

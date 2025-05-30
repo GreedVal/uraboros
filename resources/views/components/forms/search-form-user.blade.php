@@ -23,7 +23,7 @@
                     <select id="filter" name="filter"
                         class="w-full px-4 py-2 bg-gray-800 border border-gray-600 rounded-md focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 text-white">
                         @foreach (App\Telegram\Enum\ChannelParticipantsFilter::cases() as $filter)
-                            <option value="{{ $filter->value }}">{{ $filter->name }}</option>
+                            <option value="{{ $filter->value }}">{{ $filter->description() }}</option>
                         @endforeach
                     </select>
                 </div>

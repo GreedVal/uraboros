@@ -7,7 +7,7 @@ use App\Http\Controllers\Controller;
 use App\Telegram\Services\TelegramService;
 use App\Telegram\DTO\Request\ParticipantsRequestDTO;
 
-class GetUserInGroupController extends Controller
+class GetParticipantsInGroupController extends Controller
 {
     public function __construct(
         protected TelegramService $telegramService
@@ -22,10 +22,9 @@ class GetUserInGroupController extends Controller
     public function search(Request $request) {
 
         $dto = new ParticipantsRequestDTO(
-            chatUsername: 'DimBandera',
+            chatUsername: $request->chatUsername,
             filter: $request->filter,
-            limit: 10,
-            offset: 0
+            limit: 20,
         );
 
         $result = $this->telegramService->getUserByGroup($dto);

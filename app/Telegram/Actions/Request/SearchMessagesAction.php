@@ -1,32 +1,20 @@
 <?php
 
-namespace App\Telegram\Actions\Search;
+namespace App\Telegram\Actions\Request;
 
 use Illuminate\Support\Facades\Log;
-use App\Telegram\DTO\Search\SearchMessagesDTO;
-use App\Telegram\Actions\AbstractTelegramAction;
+
 use App\Telegram\Factories\ChatDTOFactory;
 use App\Telegram\Factories\MessageDTOFactory;
+use App\Telegram\DTO\Request\SearchMessagesDTO;
+use App\Telegram\Actions\AbstractTelegramAction;
 
 class SearchMessagesAction extends AbstractTelegramAction
 {
     public function execute(SearchMessagesDTO $dto): array
     {
         try {
-            $response = $this->madeline()->messages->search([
-                'peer' => $dto->chatUsername,
-                'q' => $dto->query,
-                'from_id' => $dto->fromId,
-                'filter' => $dto->filter,
-                'min_date' => $dto->minDate,
-                'max_date' => $dto->maxDate,
-                'offset_id' => $dto->offsetId,
-                'add_offset' => $dto->addOffset,
-                'limit' => $dto->limit,
-                'max_id' => $dto->maxId,
-                'min_id' => $dto->minId,
-                'hash' => $dto->hash,
-            ]);
+            $response = $this->madeline()->messages->search($dto->toArray());
 
             return $this->processResponse($response);
 
