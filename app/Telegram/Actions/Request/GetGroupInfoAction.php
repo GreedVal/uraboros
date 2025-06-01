@@ -4,11 +4,11 @@ namespace App\Telegram\Actions\Request;
 
 use Illuminate\Support\Facades\Log;
 use App\Telegram\Actions\AbstractTelegramAction;
-use App\Telegram\DTO\Request\GroupInfoRequestDTO;
+use App\Telegram\DTO\Request\GetGroupInfoRequestDTO;
 
 class GetGroupInfoAction extends AbstractTelegramAction
 {
-    public function execute(GroupInfoRequestDTO $dto): ?array
+    public function execute(GetGroupInfoRequestDTO $dto): ?array
     {
         try {
             return $this->madeline()->getInfo($dto->chatUsername);

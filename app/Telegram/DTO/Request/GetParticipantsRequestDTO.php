@@ -2,7 +2,7 @@
 
 namespace App\Telegram\DTO\Request;
 
-class ParticipantsRequestDTO
+class GetParticipantsRequestDTO
 {
     public function __construct(
         public string $chatUsername,
