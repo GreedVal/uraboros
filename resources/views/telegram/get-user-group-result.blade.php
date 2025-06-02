@@ -95,7 +95,7 @@
                     <div class="mt-8 flex items-center justify-between">
                         {{-- Кнопка "Назад" --}}
                         @if ($currentPage > 1)
-                            <a href="{{ route('telegram.get-user-group-result', ['page' => $currentPage - 1]) }}"
+                            <a href="{{ route('telegram.get-user-group-result', array_merge($queryParams ?? [], ['page' => $currentPage + 1])) }}"
                                 class="px-4 py-2 bg-gray-700 rounded-lg text-white hover:bg-gray-600 transition-colors flex items-center gap-2">
                                 <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none"
                                     viewBox="0 0 24 24" stroke="currentColor">
@@ -123,7 +123,7 @@
 
                         {{-- Кнопка "Вперед" --}}
                         @if ($currentPage < $totalPages)
-                            <a href="{{ route('telegram.get-user-group-result', ['page' => $currentPage + 1]) }}"
+                            <a href="{{ route('telegram.get-user-group-result', $queryParams ?? []) }}"
                                 class="px-4 py-2 bg-gray-700 rounded-lg text-white hover:bg-gray-600 transition-colors flex items-center gap-2">
                                 Вперед
                                 <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none"

@@ -20,21 +20,39 @@ class GetParticipantsInGroupController extends Controller
     }
 
     public function search(Request $request) {
+        $perPage = 50;
+        $currentPage = $request->input('page', 1);
+
+        $offset = ($currentPage - 1) * $perPage;
 
         $dto = new GetParticipantsRequestDTO(
             chatUsername: $request->chatUsername,
             filter: $request->filter,
-            limit: 50,
+            limit: $perPage,
+            offset: $offset
         );
 
         $result = $this->telegramService->getUserByGroup($dto);
 
-        dd($result);
+        if (is_array($result) && array_key_exists('error', $result)) {
+            return redirect()->back()->with('status', $result['error']);
+        }
+
+        $totalPages = ceil($result['count'] / $perPage);
+
+        $queryParams = [
+            'chatUsername' => $request->chatUsername,
+            'filter' => $request->filter,
+            'page' => $totalPages
+        ];
+
         return view('telegram.get-user-group-result', [
             'count' => $result['count'],
             'participants' => $result['participants'] ?? null,
-            'currentPage' => 1,
-            'totalPages' => 2,
+            'queryParams' => $queryParams,
+            'currentPage' => $currentPage,
+            'totalPages' => $totalPages,
+            'perPage' => $perPage
         ]);
     }
 }
