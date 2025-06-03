@@ -43,7 +43,6 @@ class GetParticipantsInGroupController extends Controller
         $queryParams = [
             'chatUsername' => $request->chatUsername,
             'filter' => $request->filter,
-            'page' => $totalPages
         ];
 
         return view('telegram.get-user-group-result', [
