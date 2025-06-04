@@ -26,7 +26,7 @@ class SearchWordInGroupController extends Controller
 
         $dto = new SearchMessagesDTO(
             chatUsername: $request->chatUsername,
-            query: $request['query'],
+            query: $request['query'] ?? '',
             offsetId: $offset_id,
             limit: 20
         );
