@@ -23,5 +23,6 @@ Route::prefix('telegram')->name('telegram.')->group(function () {
     Route::get('/get-user-group/result', [GetParticipantsInGroupController::class, 'search'])->name('get-user-group.result');
 
     Route::get('/get-info-group', [GetInfoGroupController::class, 'index'])->name('get-info-group');
+        Route::get('/get-info-group/result', [GetInfoGroupController::class, 'search'])->name('get-info-group.result');
 
 });

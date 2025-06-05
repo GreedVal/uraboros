@@ -15,13 +15,7 @@ class GetInfoGroupController extends Controller
 
     public function index() {
 
+        return view('telegram.get-info-group');
 
-        $dto = new GetFullInfoRequestDTO(
-            name: 'hh_kherson',
-        );
-
-        $result = $this->telegramService->getInfoGroup($dto);
-
-        dd($result);
     }
 }
