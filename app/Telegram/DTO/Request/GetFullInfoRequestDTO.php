@@ -2,9 +2,9 @@
 
 namespace App\Telegram\DTO\Request;
 
-class GetGroupInfoRequestDTO
+class GetFullInfoRequestDTO
 {
     public function __construct(
-        public string $chatUsername,
+        public string $name,
     ) {}
 }

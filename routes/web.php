@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 
+use App\Http\Controllers\Telegram\GetInfoGroupController;
 use App\Http\Controllers\Telegram\SearchUserInGroupController;
 use App\Http\Controllers\Telegram\SearchWordInGroupController;
 use App\Http\Controllers\Telegram\GetParticipantsInGroupController;
@@ -20,5 +21,7 @@ Route::prefix('telegram')->name('telegram.')->group(function () {
 
     Route::get('/get-user-group', [GetParticipantsInGroupController::class, 'index'])->name('get-user-group');
     Route::get('/get-user-group/result', [GetParticipantsInGroupController::class, 'search'])->name('get-user-group.result');
+
+    Route::get('/get-info-group', [GetInfoGroupController::class, 'index'])->name('get-info-group');
 
 });
