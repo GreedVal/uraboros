@@ -9,7 +9,6 @@ class ChatDTO
         public string $title,
         public ?string $username,
         public bool $isMegagroup,
-        public bool $isLeft,
         public bool $hasLink,
         public bool $joinToSend,
         public ?int $date,

@@ -23,7 +23,6 @@ class FullInfoChatDTOFactory
             $data['Chat']['title'],
             $data['Chat']['username'] ?? null,
             (bool)($data['Chat']['megagroup'] ?? false),
-            (bool)($data['Chat']['left'] ?? false),
             (bool)($data['Chat']['has_link'] ?? false),
             (bool)($data['Chat']['join_to_send'] ?? false),
             $data['Chat']['date'] ?? null,
