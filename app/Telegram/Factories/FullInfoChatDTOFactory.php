@@ -30,7 +30,7 @@ class FullInfoChatDTOFactory
             $data['full']['online_count'] ?? null,
             $data['full']['about'] ?? null,
             $data['full']['linked_chat_id'] ?? null,
-            $data['full']['available_reactions']['reactions'] ?? null,
+            $data['full']['available_reactions']['reactions'] ?? [],
             $photo,
             $data['Chat']['default_banned_rights'] ?? null
         );

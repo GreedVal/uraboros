@@ -31,6 +31,8 @@ class GetInfoGroupController extends Controller
             return redirect()->back()->with('status', $result['error']);
         }
 
+        //dd($result);
+
         return view('telegram.get-info-group-result', [
             'chat' => $result[0] ?? null,
         ]);
