@@ -14,7 +14,6 @@ class GetGroupParticipantsAction extends AbstractTelegramAction
             $response = $this->madeline()->channels->getParticipants($dto->toArray());
             return $this->processResponse($response);
         } catch (\Exception $e) {
-            //Log::error("Error in GetGroupParticipantsAction: " . $e->getMessage());
             return ['error' => $e->getMessage()];
         }
     }
@@ -25,7 +24,6 @@ class GetGroupParticipantsAction extends AbstractTelegramAction
             'count' => $response['count'] ?? 0,
             'participants' => [],
         ];
-
 
         $usersMap = [];
         foreach ($response['users'] ?? [] as $user) {
