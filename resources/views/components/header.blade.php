@@ -40,7 +40,7 @@
                     </a>
                     <ul
                         class="absolute left-0 top-full mt-1 w-64 bg-gray-800 rounded-md shadow-xl py-1 border border-gray-700 invisible opacity-0 group-hover:visible group-hover:opacity-100 transition-all duration-200 z-50">
-                        <li><a href="#"
+                        <li><a href="{{ route('check-web.get-info-web') }}"
                                 class="block px-4 py-2 hover:bg-gray-700 hover:text-indigo-300 transition-colors">Получить информацию о сайте</a></li>
                     </ul>
                 </li>

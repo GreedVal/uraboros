@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 
+use App\Http\Controllers\CheckWeb\GetInfoWebController;
 use App\Http\Controllers\Telegram\GetInfoGroupController;
 use App\Http\Controllers\Telegram\SearchUserInGroupController;
 use App\Http\Controllers\Telegram\SearchWordInGroupController;
@@ -24,5 +25,11 @@ Route::prefix('telegram')->name('telegram.')->group(function () {
 
     Route::get('/get-info-group', [GetInfoGroupController::class, 'index'])->name('get-info-group');
     Route::get('/get-info-group/result', [GetInfoGroupController::class, 'search'])->name('get-info-group.result');
+
+});
+
+Route::prefix('check-web')->name('check-web.')->group(function () {
+
+    Route::get('/get-info-web', [GetInfoWebController::class, 'index'])->name('get-info-web');
 
 });
