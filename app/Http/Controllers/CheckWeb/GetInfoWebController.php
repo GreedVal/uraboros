@@ -18,11 +18,11 @@ class GetInfoWebController extends Controller
 
 
         $dto = new CheckRequestDTO(
-            url: 'https://dzesdn.ru'
+            url: 'https://dzasden.ru'
         );
 
 
-        $result = $this->checkWeb->checkAll($dto);
+        $result = $this->checkWeb->checkRedirects($dto);
 
         dd($result);
 

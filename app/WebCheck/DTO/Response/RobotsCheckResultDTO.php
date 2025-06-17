@@ -6,6 +6,6 @@ class RobotsCheckResultDTO
 {
     public function __construct(
         public readonly bool $exists,
-        public readonly string $content
+        public readonly string $content,
     ) {}
 }

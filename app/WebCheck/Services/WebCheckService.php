@@ -41,7 +41,7 @@ class WebCheckService
         ];
     }
 
-    public function checkIp(CheckRequestDTO $dto): IpResultDTO
+    public function checkIp(CheckRequestDTO $dto): ?IpResultDTO
     {
         return $this->checkIp->execute($dto);
     }
@@ -51,7 +51,7 @@ class WebCheckService
         return $this->checkDns->execute($dto);
     }
 
-    public function checkSsl(CheckRequestDTO $dto): SslCertificateResultDTO
+    public function checkSsl(CheckRequestDTO $dto): ?SslCertificateResultDTO
     {
         return $this->checkSsl->execute($dto);
     }
@@ -61,12 +61,12 @@ class WebCheckService
         return $this->checkHeaders->execute($dto);
     }
 
-    public function checkRedirects(CheckRequestDTO $dto): RedirectInfoResultDTO
+    public function checkRedirects(CheckRequestDTO $dto): ?RedirectInfoResultDTO
     {
         return $this->checkRedirects->execute($dto);
     }
 
-    public function checkRobots(CheckRequestDTO $dto): RobotsCheckResultDTO
+    public function checkRobots(CheckRequestDTO $dto): ?RobotsCheckResultDTO
     {
         return $this->checkRobots->execute($dto);
     }

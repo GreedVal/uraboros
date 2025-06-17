@@ -10,7 +10,19 @@ class RedirectInfoResultDTOFactory
     {
         return new RedirectInfoResultDTO(
             effectiveUrl: $info['url'] ?? null,
-            redirectCount: $info['redirect_count'] ?? 0
+            redirectCount: $info['redirect_count'] ?? 0,
+            success: true,
+            error: null
+        );
+    }
+
+    public static function createError(string $error): RedirectInfoResultDTO
+    {
+        return new RedirectInfoResultDTO(
+            effectiveUrl: null,
+            redirectCount: 0,
+            success: false,
+            error: $error
         );
     }
 }

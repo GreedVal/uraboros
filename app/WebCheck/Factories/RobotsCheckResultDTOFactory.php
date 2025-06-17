@@ -13,7 +13,7 @@ class RobotsCheckResultDTOFactory
 
         return new RobotsCheckResultDTO(
             exists: $content !== false,
-            content: $content ?: ''
+            content: $content ?: '',
         );
     }
 }

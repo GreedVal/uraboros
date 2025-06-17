@@ -13,7 +13,26 @@ class CheckHeadersAction
      */
     public function execute(CheckRequestDTO $dto): array
     {
-        $headers = get_headers($dto->url, true) ?: [];
-        return HttpHeaderResultDTOFactory::createFromArray($headers);
+        try {
+            $url = $dto->url;
+
+            if (!filter_var($url, FILTER_VALIDATE_URL)) {
+                //Log::warning("Invalid URL in CheckHeadersAction: {$url}");
+                return [];
+            }
+
+            $headers = @get_headers($url, true);
+
+            if ($headers === false || !is_array($headers)) {
+                //Log::error("Failed to retrieve headers from URL: {$url}");
+                return [];
+            }
+
+            return HttpHeaderResultDTOFactory::createFromArray($headers);
+
+        } catch (\Throwable $e) {
+            //Log::error("CheckHeadersAction error: " . $e->getMessage());
+            return [];
+        }
     }
 }
