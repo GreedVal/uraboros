@@ -16,16 +16,22 @@ class GetInfoWebController extends Controller
 
     public function index() {
 
+        return view('check-web.get-info-web');
+
+    }
+
+    public function search(Request $request) {
+
+        if (!filter_var($request->url, FILTER_VALIDATE_URL)) {
+            return redirect()->back()->with('status', 'Недопустимый URL.');
+        }
 
         $dto = new CheckRequestDTO(
-            url: 'https://dzasden.ru'
+            url: $request->url
         );
 
+        $result = $this->checkWeb->checkAll($dto);
 
-        $result = $this->checkWeb->checkRedirects($dto);
-
-        dd($result);
-
-        return [];
+        return view('check-web.get-info-web-result', ['result' => $result]);
     }
 }

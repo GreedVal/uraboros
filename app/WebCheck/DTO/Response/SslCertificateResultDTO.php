@@ -6,10 +6,10 @@ class SslCertificateResultDTO
 {
     public function __construct(
         public readonly bool $success,
-        public readonly ?array $subject = null,
-        public readonly ?array $issuer = null,
-        public readonly ?string $validFrom = null,
-        public readonly ?string $validTo = null,
-        public readonly ?string $error = null
+        public readonly ?array $subject,
+        public readonly ?array $issuer,
+        public readonly ?string $valid_from,
+        public readonly ?string $valid_to,
+        public readonly ?string $error
     ) {}
 }

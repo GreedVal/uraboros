@@ -31,5 +31,6 @@ Route::prefix('telegram')->name('telegram.')->group(function () {
 Route::prefix('check-web')->name('check-web.')->group(function () {
 
     Route::get('/get-info-web', [GetInfoWebController::class, 'index'])->name('get-info-web');
+    Route::get('/get-info-web/result', [GetInfoWebController::class, 'search'])->name('get-info-web.result');
 
 });

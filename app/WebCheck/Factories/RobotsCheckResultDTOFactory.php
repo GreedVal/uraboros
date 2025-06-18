@@ -6,13 +6,10 @@ use App\WebCheck\DTO\Response\RobotsCheckResultDTO;
 
 class RobotsCheckResultDTOFactory
 {
-    public static function createFromUrl(string $url): RobotsCheckResultDTO
+    public static function create(bool $url, string $content): RobotsCheckResultDTO
     {
-        $robotsUrl = rtrim($url, '/') . '/robots.txt';
-        $content = @file_get_contents($robotsUrl);
-
         return new RobotsCheckResultDTO(
-            exists: $content !== false,
+            exists: $url !== false,
             content: $content ?: '',
         );
     }

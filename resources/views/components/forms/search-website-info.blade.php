@@ -1,7 +1,7 @@
 @props([
-    'title' => 'TELEGRAM SEARCH',
+    'title' => 'GET WEBSITE INFO',
     'action' => '',
-    'chatUsernameLabel' => 'Чат/Канал',
+    'lable' => 'Url',
 ])
 
 <div class="max-w-4xl mx-auto bg-gray-800 rounded-xl shadow-2xl p-6 border border-gray-700">
@@ -11,11 +11,11 @@
         <div class="bg-gray-700 p-4 rounded-lg">
             <form action="{{ $action }}" method="GET" class="space-y-4">
                 <div>
-                    <label for="chatUsername"
-                        class="block text-sm font-medium text-gray-300 mb-1">{{ $chatUsernameLabel }}</label>
-                    <input type="text" id="chatUsername" name="chatUsername" required
+                    <label for="url"
+                        class="block text-sm font-medium text-gray-300 mb-1">{{ $lable }}</label>
+                    <input type="text" id="url" name="url" required
                         class="w-full px-4 py-2 bg-gray-800 border border-gray-600 rounded-md focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 text-white placeholder-gray-400"
-                        placeholder="username">
+                        placeholder="Url">
                 </div>
 
                 <div class="pt-2">
