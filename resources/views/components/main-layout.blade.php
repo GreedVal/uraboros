@@ -11,7 +11,9 @@
 <body class="flex flex-col min-h-screen bg-gray-900 text-gray-100 transition-colors duration-300">
     @include('components.header')
 
-    <x-alert />
+    <div class="container mx-auto px-4 mt-4">
+        <x-alert />
+    </div>
 
     <main class="flex-grow container mx-auto py-8 px-4">
         {{ $slot }}
