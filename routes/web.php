@@ -1,7 +1,6 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
 use App\Http\Controllers\CheckWeb\GetInfoWebController;
 use App\Http\Controllers\Telegram\GetInfoGroupController;
 use App\Http\Controllers\Telegram\SearchUserInGroupController;
