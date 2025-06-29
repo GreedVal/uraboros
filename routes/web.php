@@ -19,6 +19,10 @@ Route::get('telegram', function () {
     return Inertia::render('Telegram');
 })->middleware(['auth', 'verified'])->name('telegram');
 
+Route::get('web', function () {
+    return Inertia::render('Web');
+})->middleware(['auth', 'verified'])->name('web');
+
 
 Route::middleware('auth')->prefix('telegram')->name('telegram')->group(function () {
     Route::get('/word-messages', WordMessagesController::class)->name('word-messages');

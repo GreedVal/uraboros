@@ -9,8 +9,9 @@ class ForwardInfoDTO
         public ?int $originalChannelPost,
         public ?int $savedFromMsgId,
         public ?int $savedFromPeerId,
-        public ?int $fromName,
+        public ?string $fromName,
         public ?bool $import,
         public ?bool $hidden
-    ) {}
+    ) {
+    }
 }

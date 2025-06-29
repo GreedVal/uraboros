@@ -21,7 +21,7 @@ const mainNavItems: NavItem[] = [
     },
     {
         title: 'Web',
-        href: '/',
+        href: '/web',
         icon: Chrome,
     },
 ];

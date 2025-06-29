@@ -22,5 +22,5 @@ yarn-error.log
 /.nova
 /.vscode
 /.zed
-/osp
+/.osp
 /public/MadelineProto.txt

@@ -320,7 +320,7 @@ class MessageDTOFactory
         $photo = $mediaData['photo'];
         $sizes = [];
 
-        if(isset($photo['sizes'])) {
+        if (isset($photo['sizes'])) {
             foreach ($photo['sizes'] as $size) {
                 $sizes[] = [
                     'type' => $size['type'],
@@ -354,7 +354,7 @@ class MessageDTOFactory
             id: $chatData['id'],
             title: $chatData['title'],
             username: $chatData['username'] ?? null,
-            type: match($chatData['_']) {
+            type: match ($chatData['_']) {
                 'channel' => 'channel',
                 'chat' => 'chat',
                 default => 'group'
