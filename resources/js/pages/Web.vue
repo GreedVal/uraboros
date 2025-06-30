@@ -4,8 +4,6 @@ import { usePage } from '@inertiajs/vue3'
 import AppLayout from '@/layouts/AppLayout.vue'
 import { type BreadcrumbItem } from '@/types'
 import { Head } from '@inertiajs/vue3'
-import BasicSearchForm from '@/components/telegram/BasicSearchForm.vue'
-import ParticipantsSearchForm from '@/components/telegram/ParticipantsSearchForm.vue'
 import Select from '@/components/ui/select/Select.vue'
 import InfoSearchForm from '@/components/telegram/InfoSearchForm.vue'
 import InputError from '@/components/InputError.vue' // Убедитесь, что импортировали компонент ошибок
@@ -15,22 +13,22 @@ const breadcrumbs: BreadcrumbItem[] = [
   { title: 'Web', href: '/web' }
 ]
 
-type SearchType = 'word' | 'user' | 'participants' | 'info'
+type SearchType = 'info'
 
 const isValidSearchType = (value: unknown): value is SearchType => {
-  return ['word', 'user', 'participants', 'info'].includes(value as SearchType)
+  return ['info'].includes(value as SearchType)
 }
 
 const getInitialSearchType = (): SearchType => {
-  const storedValue = localStorage.getItem('telegramSearchType')
-  return isValidSearchType(storedValue) ? storedValue : 'word'
+  const storedValue = localStorage.getItem('type')
+  return isValidSearchType(storedValue) ? storedValue : 'info'
 }
 
 const searchType = ref<SearchType>(getInitialSearchType())
 
 const handleSearchTypeChange = (value: SearchType) => {
   searchType.value = value
-  localStorage.setItem('telegramSearchType', value)
+  localStorage.setItem('type', value)
 }
 
 interface SearchOption {
@@ -39,17 +37,36 @@ interface SearchOption {
 }
 
 const searchOptions: SearchOption[] = [
-  { value: 'word', label: 'Messages by word search' },
-  { value: 'user', label: 'Messages by user search' },
-  { value: 'participants', label: 'Participants search' },
-  { value: 'info', label: 'Info group search' }
+  { value: 'info', label: 'Web site info' },
 ]
 </script>
 
 <template>
-  <Head title="Web" />
+  <Head title="Telegram" />
 
   <AppLayout :breadcrumbs="breadcrumbs">
-   Web
+    <div class="mx-4 mt-4">
+      <Select
+        v-model="searchType"
+        @update:modelValue="handleSearchTypeChange"
+        :options="searchOptions"
+        placeholder="Select search type"
+        variant="outline"
+        size="default"
+        class="mb-6 w-1/3"
+      />
+    </div>
+
+    <div class="space-y-8">
+      <div class="max-w-md mx-auto">
+          <InputError v-if="page.props.errors.error" :message="page.props.errors.error" class="mt-2" />
+      </div>
+      <InfoSearchForm
+        v-if="searchType === 'info'"
+        title=""
+        action="/"
+        label=""
+      />
+    </div>
   </AppLayout>
 </template>
