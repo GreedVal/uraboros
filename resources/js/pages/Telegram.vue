@@ -8,7 +8,7 @@ import BasicSearchForm from '@/components/telegram/BasicSearchForm.vue'
 import ParticipantsSearchForm from '@/components/telegram/ParticipantsSearchForm.vue'
 import Select from '@/components/ui/select/Select.vue'
 import InfoSearchForm from '@/components/telegram/InfoSearchForm.vue'
-import InputError from '@/components/InputError.vue' // Убедитесь, что импортировали компонент ошибок
+import InputError from '@/components/InputError.vue'
 
 const page = usePage()
 const breadcrumbs: BreadcrumbItem[] = [
@@ -60,14 +60,14 @@ const searchOptions: SearchOption[] = [
         size="default"
         class="mb-6 w-1/3"
       />
-    
+
     </div>
 
     <div class="space-y-8">
       <div class="max-w-md mx-auto">
           <InputError v-if="page.props.errors.error" :message="page.props.errors.error" class="mt-2" />
       </div>
-      
+
       <BasicSearchForm
         v-if="searchType === 'word'"
         title=""
