@@ -50,7 +50,7 @@ class ParticipantsController extends Controller
             'page' => (int) $page,
         ];
 
-        return Inertia::render('Telegram/ParticipantsGroup', [
+        return Inertia::render('telegram/ParticipantsGroup', [
             'count' => $result['count'],
             'participants' => $result['participants'] ?? null,
             'queryParams' => $queryParams,

@@ -61,7 +61,7 @@ class WordMessagesController extends Controller
 
         ];
 
-        return Inertia::render('Telegram/WordMessages', [
+        return Inertia::render('telegram/WordMessages', [
             'data' => $result,
             'queryParams' => $queryParams,
             'totalPages' => (int) $totalPages,

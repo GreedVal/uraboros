@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Telegram\InfoGroupController;
+use App\Http\Controllers\Web\InfoSiteControler;
 use App\Http\Controllers\Telegram\ParticipantsController;
 use App\Http\Controllers\Telegram\UserMessagesController;
 use App\Http\Controllers\Telegram\WordMessagesController;
@@ -29,6 +30,11 @@ Route::middleware('auth')->prefix('telegram')->name('telegram')->group(function 
     Route::get('/user-messages', UserMessagesController::class)->name('user-messages');
     Route::get('/participants-group', ParticipantsController::class)->name('participants-group');
     Route::get('/info-group', InfoGroupController::class)->name('info-group');
+});
+
+Route::middleware('auth')->prefix('web')->name('web')->group(function () {
+    Route::get('/info-site', InfoSiteControler::class)->name('info-site');
+
 });
 
 

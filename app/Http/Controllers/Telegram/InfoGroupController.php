@@ -43,7 +43,7 @@ class InfoGroupController extends Controller
                 ]);
         }
 
-        return Inertia::render('Telegram/InfoGroup', [
+        return Inertia::render('telegram/InfoGroup', [
             'groups' => $result
         ]);
     }

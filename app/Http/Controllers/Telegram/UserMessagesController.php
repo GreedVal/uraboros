@@ -56,7 +56,7 @@ class UserMessagesController extends Controller
 
         ];
 
-        return Inertia::render('Telegram/UserMessages', [
+        return Inertia::render('telegram/UserMessages', [
             'data' => $result,
             'queryParams' => $queryParams,
             'totalPages' => (int) $totalPages,

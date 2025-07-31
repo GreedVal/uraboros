@@ -6,7 +6,7 @@ import { type BreadcrumbItem } from '@/types'
 import { Head } from '@inertiajs/vue3'
 import Select from '@/components/ui/select/Select.vue'
 import InfoSearchForm from '@/components/telegram/InfoSearchForm.vue'
-import InputError from '@/components/InputError.vue' // Убедитесь, что импортировали компонент ошибок
+import InputError from '@/components/InputError.vue'
 
 const page = usePage()
 const breadcrumbs: BreadcrumbItem[] = [
@@ -64,8 +64,9 @@ const searchOptions: SearchOption[] = [
       <InfoSearchForm
         v-if="searchType === 'info'"
         title=""
-        action="/"
+        action="/web/info-site"
         label=""
+        placeholder = "Enter url web site"
       />
     </div>
   </AppLayout>

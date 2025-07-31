@@ -36,7 +36,7 @@ const submit = () => {
           id="query"
           type="text"
           v-model="form.query"
-          :placeholder="placeholder || 'Enter username group'"
+          :placeholder="placeholder || 'Enter question'"
           required
           class="bg-white border-gray-300"
         />
