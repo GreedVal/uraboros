@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Inertia\Inertia;
 
-class InfoSiteControler extends Controller
+class InfoSiteController extends Controller
 {
     public function __construct(
         protected WebCheckService $webCheckService
@@ -18,9 +18,11 @@ class InfoSiteControler extends Controller
     public function __invoke(Request $request)
     {   
         $dto = new CheckRequestDTO(
-            url: 'https://app.moo.team/signin',
+            url: $request->input('query')
         );
 
-        dd($this->webCheckService->checkAll($dto ));
+        $result = $this->webCheckService->checkAll($dto);
+
+        return Inertia::render('web/InfoSite', ['data' => $result]);
     }
 }
